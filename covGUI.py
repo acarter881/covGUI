@@ -101,7 +101,9 @@ def downloadFiles():
                     found = False
                     while not found:
                         time.sleep(0.1)
-                        print(f'Searching on page {pgCount}')
+			infoTextBox.configure(state='normal')
+                        infoTextBox.insert(tk.END,'Searching on page %s\n' % pgCount)
+                        infoTextBox.see(tk.END)         # Scroll if necessary
                         pgCount += 1
                         secondPayload = {'Advanced': '', 'pg': str(pageRegEx), 'qu': {searchTerm}, 'RankBase': '1000', 'sc': '%2F'}
                         nextPage = requests.get(searchURL, params=secondPayload, headers=headers, cookies=cookies)    
