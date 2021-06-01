@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import scrolledtext
+from tkinter import messagebox
 import requests
 import re
 import time
@@ -23,9 +24,9 @@ def clearTextInput():
     
 def checkPath():
     if not os.path.isdir(pathInput.get()) and pathInput.get() != '':
-        tk.messagebox.showerror('Path Box Error', 'Please input a valid path or leave this text box blank.')
+	messagebox.showerror('Path Box Error', 'Please input a valid path or leave this text box blank.')
     elif t.get('1.0', 'end-1c') == '':
-        tk.messagebox.showerror('Search Box Error', 'Please input at least one search term.')
+	messagebox.showerror('Search Box Error', 'Please input at least one search term.')
     else:
         downloadFiles()
         
